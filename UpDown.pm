@@ -13,7 +13,6 @@ Tk::Widget->Construct('UpDown');
 
 sub new()
 {
-	print "I am Here\n";
 	my ($Class) = (shift);
 
 	my $Object = $Class->SUPER::new(@_);
@@ -145,10 +144,10 @@ sub Populate()
        (
         '-background' => [['SELF', 'METHOD', $Num_Entry], 'background', 'Background', 'white'],
         '-foreground' => [['SELF', 'METHOD', $Num_Entry], 'foreground', 'Foreground', 'black'],
-        '-relief' => [['SELF', 'METHOD', $Up_Button, $Down_Button], 'foreground', 'Foreground'],
-        '-cursor' => [['SELF', 'METHOD', $Num_Entry], 'foreground', 'Foreground'],
-        '-height' => [['SELF', 'METHOD', $Num_Entry, $Up_Button, $Down_Button], 'borderwidth', 'BorderWidth', 5],
-        '-width' => [['SELF', 'METHOD', $Num_Entry], 'borderwidth', 'BorderWidth', 10],
+        '-relief' => [['SELF', 'METHOD', $Up_Button, $Down_Button], 'relief', 'Relief'],
+        '-cursor' => [['SELF', 'METHOD', $Num_Entry], 'cursor', 'Cursor'],
+        '-height' => [['SELF', 'METHOD', $Num_Entry, $Up_Button, $Down_Button], 'height', 'height', 5],
+        '-width' => [['SELF', 'METHOD', $Num_Entry], 'width', 'Width', 10],
         '-borderwidth' => [['SELF', $Up_Button, $Down_Button], 'borderwidth', 'BorderWidth', 1],
         '-state' => [['SELF', 'METHOD', $Up_Button, $Down_Button], 'state', 'State', 'normal'],
 		'-initdigit' => ['METHOD', 'initdigit', 'Initdigit', 1],
@@ -270,7 +269,7 @@ __END__
 
 =head1 STRANDARD OPTIONS
 
-   -background | -bg, -foreground | -fg, -state, -width, -height, -relief, -cursor, -borderwidth, -initdigit, -enddigit, -step, -beep
+   -background | -bg, -foreground | -fg, -state, -width, -height, -relief, -cursor, -borderwidth
    
 
 =head1 WIDGET SPECIFIC OPTIONS
@@ -317,13 +316,22 @@ __END__
         use UpDown;
         
         my $MainWindow = MainWindow->new();
-        $UpDown = $MainWindow->UpDown(-bg => 'cyan', -fg => 'brown', -initdigit => 1, -enddigit => 10, -step => 1, -beep => 1);
+        $UpDown = $MainWindow->UpDown
+		(
+		  -bg => 'cyan', 
+		  -fg => 'brown', 
+		  -initdigit => 1, 
+		  -enddigit => 10, 
+		  -step => 1, 
+		  -beep => 1
+		);
+
         $UpDown->pack();
         
         MainLoop;
 
 =head1 AUTHORS
 
-SanjaySen.P , sanjaysen_palas2000@yahoo.com
+SanjaySen.P , palash_bksys@yahoo.com
 
 =cut
